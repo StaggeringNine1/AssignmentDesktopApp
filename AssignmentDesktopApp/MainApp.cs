@@ -123,7 +123,7 @@ namespace AssignmentDesktopApp
                     {
                         int vehiclesPumpNumber = vehicle.pumpNumber;
 
-                        if (vehiclesPumpNumber != pumpNumber && vehiclesPumpNumber != 0)
+                        if (vehiclesPumpNumber != 0)
                         {
                             allPumps[vehiclesPumpNumber].IsInUse = true;
 
