@@ -582,10 +582,6 @@ namespace AssignmentDesktopApp
                         DateTime date = DateTime.Parse(dateJoined);
                         DateTime dateToday = DateTime.Now;
 
-                        Console.WriteLine($"{(dateToday - date).Days} days");
-
-                        Console.WriteLine($"Welcome {databaseReader.GetString(1)} {databaseReader.GetString(2)}");
-
                         attendantId = databaseReader.GetInt32(0);
 
                         userWelcome.Text = $"Logged in as {databaseReader.GetString(1)} {databaseReader.GetString(2)}";
