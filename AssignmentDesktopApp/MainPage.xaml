@@ -1,0 +1,134 @@
+﻿<Page
+    x:Class="AssignmentDesktopApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AssignmentDesktopApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="Background" FocusVisualPrimaryBrush="{x:Null}" Width="Auto">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#000000" Offset="1.1"/>
+                <GradientStop Color="#FF733AA6" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid Name="LoginGrid" HorizontalAlignment="Center" Height="416" VerticalAlignment="Center" Width="560" Visibility="Visible">
+            <TextBlock x:Name="LoginTitle"  Text="Enter Attendant ID" Margin="0,-50,0,0" TextWrapping="Wrap" TextAlignment="Center" Width="122" Height="19" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Normal" TextDecorations="None"/>
+            <TextBox x:Name="AttendantInput" TextWrapping="NoWrap" Width="200" InputScope="Number" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,0" TextChanged="AttendantInput_TextChanged"/>
+            <Button x:Name="LoginButton" Content="Login" Margin="0,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="90" Click="LoginClick" Foreground="White" RequestedTheme="Dark" CornerRadius="15" Background="#99000000"/>
+        </Grid>
+
+        <TextBlock x:Name="VersionNo" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="Version 1.0.0.0" TextWrapping="Wrap" Margin="10,0,0,10"/>
+        <TextBlock x:Name="UserWelcome" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Text="TextBlock" Margin="10,10,0,0" TextWrapping="Wrap"  Width="540" Visibility="Collapsed"/>
+
+        <Grid x:Name="PumpGrid" Margin="258,100,258,100" Visibility="Collapsed">
+
+            <Grid x:Name="Pump1" Margin="0,0,0,0" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <TextBlock x:Name="Pump1Name" AccessKey="1" Text="Pump 1" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" FontSize="18" Margin="0,16,0,0"/>
+                <TextBlock x:Name="Pump1Status" AccessKey="1" Text="Available" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" Margin="0,45,0,0" FontSize="18"/>
+                <ProgressBar x:Name="Pump1Bar" AccessKey="1" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
+                <Button x:Name="SelectPump1" AccessKey="1" Content="Select Pump" Height="30" Margin="0,109,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpSelect"/>
+                <Button x:Name="Pump1Info" AccessKey="1" Content="Pump Info" Height="30" Margin="0,144,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpInfo"/>
+            </Grid>
+
+            <Grid x:Name="Pump2" Margin="0,0,0,0" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <TextBlock x:Name="Pump2Name" AccessKey="2" Text="Pump 2" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" FontSize="18" Margin="0,16,0,0"/>
+                <TextBlock x:Name="Pump2Status" AccessKey="2" Text="Available" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" Margin="0,45,0,0" FontSize="18"/>
+                <ProgressBar x:Name="Pump2Bar" AccessKey="2" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
+                <Button x:Name="SelectPump2" AccessKey="2" Content="Select Pump" Height="30" Margin="0,109,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpSelect"/>
+                <Button x:Name="Pump2Info" AccessKey="2" Content="Pump Info" Height="30" Margin="0,144,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpInfo"/>
+            </Grid>
+
+            <Grid x:Name="Pump3" Margin="0,0,0,0" Width="Auto" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <TextBlock x:Name="Pump3Name" AccessKey="3" Text="Pump 3" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" FontSize="18" Margin="0,16,0,0"/>
+                <TextBlock x:Name="Pump3Status" AccessKey="3" Text="Available" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" Margin="0,45,0,0" FontSize="18"/>
+                <ProgressBar x:Name="Pump3Bar" AccessKey="3" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
+                <Button x:Name="SelectPump3" AccessKey="3" Content="Select Pump" Height="30" Margin="0,109,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpSelect"/>
+                <Button x:Name="Pump3Info" AccessKey="3" Content="Pump Info" Height="30" Margin="0,144,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpInfo"/>
+            </Grid>
+
+            <Grid x:Name="Pump4" Margin="0,0,0,0" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock x:Name="Pump4Name" AccessKey="4" Text="Pump 4" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" FontSize="18" Margin="0,16,0,0"/>
+                <TextBlock x:Name="Pump4Status" AccessKey="4" Text="Available" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" Margin="0,45,0,0" FontSize="18"/>
+                <ProgressBar x:Name="Pump4Bar" AccessKey="4" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
+                <Button x:Name="SelectPump4" AccessKey="4" Content="Select Pump" Height="30" Margin="0,109,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpSelect"/>
+                <Button x:Name="Pump4Info" AccessKey="4" Content="Pump Info" Height="30" Margin="0,144,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpInfo"/>
+            </Grid>
+
+            <Grid x:Name="Pump5" Margin="0,0,0,0" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="Pump5Name" AccessKey="5" Text="Pump 5" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" FontSize="18" Margin="0,16,0,0"/>
+                <TextBlock x:Name="Pump5Status" AccessKey="5" Text="Available" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" Margin="0,45,0,0" FontSize="18"/>
+                <ProgressBar x:Name="Pump5Bar" AccessKey="5" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
+                <Button x:Name="SelectPump5" AccessKey="5" Content="Select Pump" Height="30" Margin="0,109,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpSelect"/>
+                <Button x:Name="Pump5Info" AccessKey="5" Content="Pump Info" Height="30" Margin="0,144,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpInfo"/>
+            </Grid>
+
+            <Grid x:Name="Pump6" Margin="0,0,0,0" Width="Auto" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBlock x:Name="Pump6Name" AccessKey="6" Text="Pump 6" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" FontSize="18" Margin="0,16,0,0"/>
+                <TextBlock x:Name="Pump6Status" AccessKey="6" Text="Available" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" Margin="0,45,0,0" FontSize="18"/>
+                <ProgressBar x:Name="Pump6Bar" AccessKey="6" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
+                <Button x:Name="SelectPump6" AccessKey="6" Content="Select Pump" Height="30" Margin="0,109,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpSelect"/>
+                <Button x:Name="Pump6Info" AccessKey="6" Content="Pump Info" Height="30" Margin="0,144,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpInfo"/>
+            </Grid>
+
+            <Grid x:Name="Pump7" Margin="0,0,0,0" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock x:Name="Pump7Name" AccessKey="7" Text="Pump 7" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" FontSize="18" Margin="0,16,0,0"/>
+                <TextBlock x:Name="Pump7Status" AccessKey="7" Text="Available" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" Margin="0,45,0,0" FontSize="18"/>
+                <ProgressBar x:Name="Pump7Bar" AccessKey="7" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
+                <Button x:Name="SelectPump7" AccessKey="7" Content="Select Pump" Height="30" Margin="0,109,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpSelect"/>
+                <Button x:Name="Pump7Info" AccessKey="7" Content="Pump Info" Height="30" Margin="0,144,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpInfo"/>
+            </Grid>
+
+            <Grid x:Name="Pump8" Margin="0,0,0,0" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <TextBlock x:Name="Pump8Name" AccessKey="8" Text="Pump 8" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" FontSize="18" Margin="0,16,0,0"/>
+                <TextBlock x:Name="Pump8Status" AccessKey="8" Text="Available" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" Margin="0,45,0,0" FontSize="18"/>
+                <ProgressBar x:Name="Pump8Bar" AccessKey="8" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
+                <Button x:Name="SelectPump8" AccessKey="8" Content="Select Pump" Height="30" Margin="0,109,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpSelect"/>
+                <Button x:Name="Pump8Info" AccessKey="8" Content="Pump Info" Height="30" Margin="0,144,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpInfo"/>
+            </Grid>
+
+            <Grid x:Name="Pump9" Margin="0,0,0,0" Width="Auto" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <TextBlock x:Name="Pump9Name" AccessKey="9" Text="Pump 9" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" FontSize="18" Margin="0,16,0,0"/>
+                <TextBlock x:Name="Pump9Status" AccessKey="9" Text="Available" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" Margin="0,45,0,0" FontSize="18"/>
+                <ProgressBar x:Name="Pump9Bar" AccessKey="9" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
+                <Button x:Name="SelectPump9" AccessKey="9" Content="Select Pump" Height="30" Margin="0,109,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpSelect"/>
+                <Button x:Name="Pump9Info" AccessKey="9" Content="Pump Info" Height="30" Margin="0,144,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpInfo"/>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="CounterGrid" Visibility="Collapsed" HorizontalAlignment="Left" Height="140" Margin="10,0,0,0" VerticalAlignment="Center" Width="250">
+            <TextBlock x:Name="CounterTitle" HorizontalAlignment="Center" Text="Counters" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="132" Height="20" FontWeight="Bold"/>
+            <TextBlock x:Name="VehiclesQueuing" HorizontalAlignment="Center" Margin="0,24,0,0" Text="Vehicles Queuing: 0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="20"/>
+            <TextBlock x:Name="VehiclesServiced" HorizontalAlignment="Center" Margin="0,48,0,0" Text="Vehicles Serviced: 0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="20"/>
+            <TextBlock x:Name="VehiclesLeft" HorizontalAlignment="Center" Margin="0,72,0,0" Text="Vehicles Left: 0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="20"/>
+            <TextBlock x:Name="TotalLitres" HorizontalAlignment="Center" Margin="0,96,0,0" Text="Total Litres Dispensed: 0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="20"/>
+            <TextBlock x:Name="TotalMoney" HorizontalAlignment="Left" Margin="0,120,0,0" Text="Total Money Earnt: £0.00" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="20"/>
+        </Grid>
+
+        <Grid x:Name="LogoutGrid" Visibility="Collapsed" HorizontalAlignment="Center" Height="300" Margin="0,0,0,0" VerticalAlignment="Center" Width="300">
+            <TextBlock x:Name="LogoutOverview" HorizontalAlignment="Center" Text="Overview" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="150" Height="50" FontSize="30" FontWeight="Bold"/>
+            <TextBlock x:Name="LogoutVehiclesServiced" HorizontalAlignment="Left" Margin="0,48,0,0" Text="Vehicles Serviced:" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30" FontSize="20"/>
+            <TextBlock x:Name="LogoutVehiclesLeft" HorizontalAlignment="Left" Margin="0,80,0,0" Text="Vehicles Left:" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30" FontSize="20"/>
+            <TextBlock x:Name="LogoutTotalLitres" HorizontalAlignment="Left" Margin="0,112,0,0" Text="Total Litres Dispensed:" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30" FontSize="20"/>
+            <TextBlock x:Name="LogoutTotalMoney" HorizontalAlignment="Left" Text="Total Money Earnt: " TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30" FontSize="20" Margin="0,144,0,0"/>
+            <TextBlock x:Name="LogoutCommission" HorizontalAlignment="Left" Text="Commission: " TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="30" FontSize="20" Margin="0,176,0,0"/>
+
+            <Button x:Name="Continue" Content="Continue" Margin="0,0,0,15" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="200" Click="LogoutContinue" Foreground="White" RequestedTheme="Dark" CornerRadius="15" FontSize="20" Height="40" Background="#99000000"/>
+        </Grid>
+
+        <Grid x:Name="PumpInformation" Visibility="Collapsed" HorizontalAlignment="Center" Height="252" VerticalAlignment="Center" Background="#FF4F2772" Canvas.ZIndex="1" Width="272">
+            <TextBlock x:Name="PumpInfoTitle" Text="Pump Information" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="204" TextAlignment="Center" FontSize="18" Margin="0,0,0,0"/>
+            <TextBlock x:Name="PumpNumber" Text="Pump Number:" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="NoWrap" Width="245" TextAlignment="Left" FontSize="16" Margin="10,42,0,0"/>
+            <TextBlock x:Name="PumpVehicles" Text="Vehicles Serviced:" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="NoWrap" Width="245" TextAlignment="Left" FontSize="16" Margin="10,68,0,0"/>
+            <TextBlock x:Name="PumpRate" Text="Dispension Rate (l/s):" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="NoWrap" Width="245" TextAlignment="Left" FontSize="16" Margin="10,94,0,0"/>
+            <TextBlock x:Name="PumpLitres" Text="Litres Dispensed:" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="NoWrap" Width="245" TextAlignment="Left" FontSize="16" Margin="10,120,0,0"/>
+            <Button x:Name="PumpClose" Content="Close" Visibility="Visible" Margin="0,208,0,0" VerticalAlignment="Top" Width="89" Click="InformationClose" Foreground="White" RequestedTheme="Dark" CornerRadius="15" Height="34" Background="#99000000" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Button x:Name="LogoutButton" Content="Logout" Visibility="Collapsed" Margin="0,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Click="LogoutClick" Foreground="White" RequestedTheme="Dark" CornerRadius="15" Height="34" Background="#99000000"/>
+    </Grid>
+</Page>
