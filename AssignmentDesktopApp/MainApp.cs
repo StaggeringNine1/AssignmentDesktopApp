@@ -57,6 +57,8 @@ namespace AssignmentDesktopApp
         /// <param name="dispatcher">The CoreDispatcher to update the UI for the correct thread</param>
         private void ChangePumps(string state, int pumpNumber, CoreDispatcher dispatcher)
         {
+            Task pumpControl = new Task(() => { ControlPumpText(dispatcher); });
+
             switch (state)
             {
                 case "add":
@@ -87,7 +89,9 @@ namespace AssignmentDesktopApp
                         }
                     }
 
-                    ControlPumpText(dispatcher);
+                    pumpControl.Start();
+                    pumpControl.Wait();
+
                     break;
 
                 case "leave":
@@ -145,7 +149,9 @@ namespace AssignmentDesktopApp
                         }
                     }
 
-                    ControlPumpText(dispatcher);
+                    pumpControl.Start();
+                    pumpControl.Wait();
+
                     break;
             }
         }
