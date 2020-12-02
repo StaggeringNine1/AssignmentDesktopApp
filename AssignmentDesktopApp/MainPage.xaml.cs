@@ -125,7 +125,7 @@ namespace AssignmentDesktopApp
 
         private void LogoutClick(object sender, RoutedEventArgs e)
         {
-            mainApp.Logout(PumpGrid, CounterGrid, LogoutGrid, LogoutButton , logoutText);
+            mainApp.Logout(PumpGrid, CounterGrid, LogoutGrid, LogoutButton, logoutText);
         }
 
         private void InformationClose(object sender, RoutedEventArgs e)
