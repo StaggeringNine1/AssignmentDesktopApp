@@ -405,7 +405,7 @@ namespace AssignmentDesktopApp
                 {
                     int randomNum = random.Next(1, 3);
 
-                    Pump pump = new Pump(0);
+                    Pump pump = new Pump(1);
 
                     switch (randomNum)
                     {
