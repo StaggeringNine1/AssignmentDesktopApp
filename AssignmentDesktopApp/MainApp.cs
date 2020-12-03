@@ -160,7 +160,7 @@ namespace AssignmentDesktopApp
         /// Create a random vehicle sub-object of Car, Van or Truck
         /// </summary>
         /// <returns></returns>
-        private Vehicle CreateVehicle()
+        public Vehicle CreateVehicle()
         {
             Vehicle vehicle = new Vehicle.Car();
 
@@ -594,7 +594,7 @@ namespace AssignmentDesktopApp
             }
 
             if (loggedIn)
-            {                
+            {
                 PumpGrid.Visibility = Visibility.Visible;
                 CounterGrid.Visibility = Visibility.Visible;
                 LogoutButton.Visibility = Visibility.Visible;

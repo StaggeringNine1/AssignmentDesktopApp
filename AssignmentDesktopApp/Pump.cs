@@ -1,6 +1,8 @@
-﻿namespace AssignmentDesktopApp
+﻿using System;
+
+namespace AssignmentDesktopApp
 {
-    class Pump
+    public class Pump
     {
         /// <summary>
         /// Receive pump number
@@ -74,6 +76,11 @@
         /// <param name="pumpNumber">The pump number of this pump</param>
         public Pump (int pumpNumber)
         {
+            if (pumpNumber <= 0)
+            {
+                throw new ArgumentOutOfRangeException("pumpNumber");
+            }
+
             ChangeNum = pumpNumber;
             ChangeRate = 1.5M;
             ChangeLitres = 0;
@@ -87,6 +94,16 @@
         /// <param name="dispensionRate">The dispension rate of this pump in litres per second</param>
         public Pump (int pumpNumber, decimal dispensionRate)
         {
+            if (pumpNumber <= 0)
+            {
+                throw new ArgumentOutOfRangeException("pumpNumber");
+            }
+
+            if (dispensionRate <= 0M)
+            {
+                throw new ArgumentOutOfRangeException("dispensionRate");
+            }
+
             ChangeNum = pumpNumber;
             ChangeRate = dispensionRate;
             ChangeLitres = 0;
