@@ -10,9 +10,10 @@ namespace AppiumTest
     [TestClass]
     public class UnitTest1
     {
-        private WindowsDriver<WindowsElement> driver;
+        private WindowsDriver<WindowsElement> driver;        
 
         [TestInitialize]
+        [Obsolete]
         public void Initialisation()
         {
             AppiumOptions options = new AppiumOptions();
@@ -24,14 +25,19 @@ namespace AppiumTest
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
 
-        private string GetCalculatorResultText()
+        [Obsolete]
+        private void SuccessLogin()
         {
-            return driver.FindElementByAccessibilityId("CalculatorResults").Text.Replace("Display is", string.Empty).Trim();
+            driver.FindElementByAccessibilityId("AttendantInput").Click();
+
+            driver.Keyboard.SendKeys("1");
+
+            driver.FindElementByAccessibilityId("LoginButton").Click();
         }
 
         [TestMethod]
         [Obsolete]
-        public void WrongAttendantID()
+        public void Invalid_AttendantID()
         {
             driver.FindElementByAccessibilityId("AttendantInput").Click();
 
@@ -40,10 +46,54 @@ namespace AppiumTest
             driver.FindElementByAccessibilityId("LoginButton").Click();
 
             driver.FindElementByAccessibilityId("Button0").Click();
+        }
 
-            //string result = GetCalculatorResultText();
+        [TestMethod]
+        [Obsolete]
+        public void Letters_AttendantID()
+        {
+            driver.FindElementByAccessibilityId("AttendantInput").Click();
 
-            //Assert.AreEqual("13", result);
+            driver.Keyboard.SendKeys("g");
+
+            driver.FindElementByAccessibilityId("Button0").Click();
+        }
+
+        [TestMethod]
+        [Obsolete]
+        public void Login_Logout()
+        {
+            SuccessLogin();
+
+            driver.FindElementByAccessibilityId("LogoutButton").Click();
+
+            driver.FindElementByAccessibilityId("Continue").Click();
+        }
+
+        [TestMethod]
+        [Obsolete]
+        public void Pump6Select()
+        {
+            SuccessLogin();
+
+            driver.FindElementByAccessibilityId("SelectPump6").Click();
+
+            driver.CloseApp();
+        }
+
+        [TestMethod]
+        [Obsolete]
+        public void SelectPump_Wait_ThenLogout()
+        {
+            SuccessLogin();
+
+            driver.FindElementByAccessibilityId("SelectPump6").Click();
+
+            Thread.Sleep(25000);
+
+            driver.FindElementByAccessibilityId("LogoutButton").Click();
+
+            driver.FindElementByAccessibilityId("Continue").Click();
         }
     }
 }
