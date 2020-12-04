@@ -86,7 +86,7 @@ namespace AssignmentDesktopApp
 
             if (inputText.Text != "")
             {
-                mainApp.Login(Convert.ToInt32(inputText.Text), UserWelcome, LoginGrid, PumpGrid, CounterGrid, LogoutButton);
+                mainApp.Login(Convert.ToInt32(inputText.Text), UserWelcome, LoginGrid, PumpGrid, CounterGrid, LogoutButton, AttendantInput);
             }
         }
 

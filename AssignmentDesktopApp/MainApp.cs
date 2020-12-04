@@ -127,7 +127,7 @@ namespace AssignmentDesktopApp
                     {
                         int vehiclesPumpNumber = vehicle.pumpNumber;
 
-                        if (vehiclesPumpNumber != 0)
+                        if (vehiclesPumpNumber != 0 && vehiclesPumpNumber != pumpNumber)
                         {
                             allPumps[vehiclesPumpNumber].IsInUse = true;
 
@@ -206,13 +206,13 @@ namespace AssignmentDesktopApp
 
                 case "allVeh":
                     numberVehiclesServiced++;
+                    allVehicles.Remove(vehicle);
 
                     await dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
                     {
                         counterBlocks[1].Text = $"Vehicles Serviced: {numberVehiclesServiced}";
                     });
-
-                    allVehicles.Remove(vehicle);
+                    
                     break;
 
                 case "both":
@@ -272,9 +272,12 @@ namespace AssignmentDesktopApp
 
                     int vehiclePumpNumber = vehicle.pumpNumber;
 
-                    DeleteVehicle("allVeh", vehicle, dispatcher);
-
                     ChangePumps("leave", vehiclePumpNumber, dispatcher);
+
+                    Task deleteVehicle = new Task(() => DeleteVehicle("allVeh", vehicle, dispatcher));
+
+                    deleteVehicle.Start();
+                    deleteVehicle.Wait();                    
                 }
             } 
             catch
@@ -555,7 +558,7 @@ namespace AssignmentDesktopApp
         /// <param name="PumpGrid">Grid containg all pump objects</param>
         /// <param name="CounterGrid">Grid containing all counter objects</param>
         /// <param name="LogoutButton">Button to logout from</param>
-        public async void Login(int loginDetail, TextBlock userWelcome, Grid LoginGrid, Grid PumpGrid, Grid CounterGrid, Button LogoutButton)
+        public async void Login(int loginDetail, TextBlock userWelcome, Grid LoginGrid, Grid PumpGrid, Grid CounterGrid, Button LogoutButton, TextBox userInput)
         {
             resetEvent.Set();
 
@@ -608,6 +611,8 @@ namespace AssignmentDesktopApp
             }
             else
             {
+                userInput.Text = "";
+
                 MessageDialog messageDialog = new MessageDialog("Wrong")
                 {
                     Title = "Attendant ID not found!",
@@ -615,6 +620,8 @@ namespace AssignmentDesktopApp
                 };
 
                 await messageDialog.ShowAsync();
+
+                
             }
         }
 
