@@ -86,7 +86,7 @@
             <Grid x:Name="Pump8" Margin="0,0,0,0" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <TextBlock x:Name="Pump8Name" AccessKey="8" Text="Pump 8" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" FontSize="18" Margin="0,16,0,0"/>
                 <TextBlock x:Name="Pump8Status" AccessKey="8" Text="Available" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="NoWrap" Width="141" TextAlignment="Center" Margin="0,45,0,0" FontSize="18"/>
-                <ProgressBar x:Name="Pump8Bar" AccessKey="8" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
+                <ProgressBar x:Name="Pump5Bar" AccessKey="8" HorizontalAlignment="Center" Height="30" Margin="29,74,29,0" VerticalAlignment="Top" Width="141" Background="Transparent" BorderThickness="1" BorderBrush="Black" Foreground="#7F00FF00"/>
                 <Button x:Name="SelectPump8" AccessKey="8" Content="Select Pump" Height="30" Margin="0,109,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpSelect"/>
                 <Button x:Name="Pump8Info" AccessKey="8" Content="Pump Info" Height="30" Margin="0,144,0,0"  Width="141" Background="#99000000" FontSize="15" FontStretch="Normal" BorderThickness="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="PumpInfo"/>
             </Grid>
