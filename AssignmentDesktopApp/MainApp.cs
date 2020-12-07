@@ -504,11 +504,11 @@ namespace AssignmentDesktopApp
 
             string path = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Database.db");
 
-            using (SqliteConnection connection = new SqliteConnection($"Data Source={path}"))
+            using (SqliteConnection databaseConnection = new SqliteConnection($"Data Source={path}"))
             {
-                connection.Open();
+                databaseConnection.Open();
 
-                SqliteCommand sqliteCommand = connection.CreateCommand();
+                SqliteCommand sqliteCommand = databaseConnection.CreateCommand();
 
                 sqliteCommand.CommandText = @"INSERT INTO Log (attendantId, numberVehiclesServiced, numberVehiclesLeft, totalLitresDispensed, totalMoneyEarnt, commission)
                                             VALUES (@attendantId, @numberVehiclesServiced, @numberVehiclesLeft, @totalLitresDispensed, @totalMoneyEarnt, @commission)";
@@ -523,7 +523,7 @@ namespace AssignmentDesktopApp
 
                 sqliteCommand.ExecuteReader();
 
-                connection.Close();
+                databaseConnection.Close();
             }
         }
 
@@ -568,11 +568,11 @@ namespace AssignmentDesktopApp
 
             string path = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Database.db");
 
-            using (SqliteConnection connection = new SqliteConnection($"Data Source={path}"))
+            using (SqliteConnection databaseConnection = new SqliteConnection($"Data Source={path}"))
             {
-                connection.Open();
+                databaseConnection.Open();
 
-                SqliteCommand command = connection.CreateCommand();
+                SqliteCommand command = databaseConnection.CreateCommand();
 
                 command.CommandText = $"SELECT * FROM Attendant WHERE attendantId = {loginDetail}";
 
@@ -593,7 +593,7 @@ namespace AssignmentDesktopApp
                     }
                 }
 
-                connection.Close();
+                databaseConnection.Close();
             }
 
             if (loggedIn)
